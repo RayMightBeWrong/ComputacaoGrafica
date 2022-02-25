@@ -60,8 +60,8 @@ void renderScene(void)
 	
 	// set camera
 	glLoadIdentity();
-	gluLookAt(5.0f, 3.0f, 5.0f,
-		0.0f, 0.0f, -1.0f,
+	gluLookAt(5.0f, 5.0f, 5.0f,
+		0.0f, 0.0f, 0.0f,
 		0.0f, 1.0f, 0.0f);
 	
 	// put drawing instructions here
