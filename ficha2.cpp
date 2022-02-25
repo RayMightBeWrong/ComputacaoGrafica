@@ -73,7 +73,7 @@ void drawTriangles(){
 	glVertex3f(-1.0f, 0.0f, 0.0f);
 	glVertex3f(1.0f, 0.0f, 0.0f);
 
-	// verde 
+	// faces verdes 
 	glColor3f(0.0, 0.5, 0.0);
 	glVertex3f(0.0f, 1.0f, 0.0f);
 	glVertex3f(0.0f, 0.0f, 1.0f);
@@ -84,7 +84,7 @@ void drawTriangles(){
 	glVertex3f(0.0f, 0.0f, -1.0f);
 	glVertex3f(-1.0f, 0.0f, 0.0f);
 
-	// verde ao contrário
+	// faces verdes ao contrário
 	glColor3f(0.0, 0.5, 0.0);
 	glVertex3f(0.0f, 1.0f, 0.0f);
 	glVertex3f(0.0f, 0.0f, 1.0f);
@@ -96,7 +96,7 @@ void drawTriangles(){
 	glVertex3f(-1.0f, 0.0f, 0.0f);
 
 
-	// azul	
+	// faces azuis	
 	glColor3f(0.0, 0.0, 0.5);
 	glVertex3f(0.0f, 1.0f, 0.0f);
 	glVertex3f(1.0f, 0.0f, 0.0f);
@@ -107,7 +107,7 @@ void drawTriangles(){
 	glVertex3f(-1.0f, 0.0f, 0.0f);
 	glVertex3f(0.0f, 0.0f, 1.0f);
 
-	// azul	ao contrário
+	// faces azuis ao contrário
 	glColor3f(0.0, 0.0, 0.5);
 	glVertex3f(0.0f, 1.0f, 0.0f);
 	glVertex3f(-1.0f, 0.0f, 0.0f);
@@ -142,15 +142,14 @@ void renderScene(void) {
 
 	axis_system();
 
-// put the geometric transformations here
+	// put the geometric transformations here
 	glTranslatef(nowX, nowY, nowZ);
 	glRotatef(angleX, 1.0f, 0.0f, 0.0f);
 	glRotatef(angleY, 0.0f, 1.0f, 0.0f);
 	glRotatef(angleZ, 0.0f, 0.0f, 1.0f);
 	glScalef(scaleValue, scaleValue, scaleValue);
 
-
-// put drawing instructions here
+	// put drawing instructions here
 	drawTriangles();
 
 	// End of frame
@@ -163,9 +162,8 @@ int modo = 1;
 
 void translate(unsigned char key, int x, int y){
 	// 'a'
-	if(key == 97){
+	if(key == 97)
 		nowX -= 0.2;
-	}
 	// 'd'
 	else if (key == 100)
 		nowX += 0.2;
@@ -243,6 +241,8 @@ void key_handler(unsigned char key, int x, int y){
 	rotate(key, x, y);
 	scale(key, x, y);
 	changeModo(key, x, y);
+	
+	// ESCAPE
 	if (key == 27)
 		exit(0);
 
