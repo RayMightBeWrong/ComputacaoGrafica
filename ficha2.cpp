@@ -161,45 +161,59 @@ int modo = 1;
 
 
 void translate(unsigned char key, int x, int y){
-	// 'a'
-	if(key == 97)
-		nowX -= 0.2;
-	// 'd'
-	else if (key == 100)
-		nowX += 0.2;
-	// 's'
-	else if (key == 115)
-		nowZ += 0.2;
-	// 'w'
-	else if (key == 119)
-		nowZ -= 0.2;
-	// 'q'
-	else if (key == 113)
-		nowY -= 0.2;
-	// 'e'
-	else if (key == 101)
-		nowY += 0.2;
+	switch(key){
+		// 'a'
+		case 97:
+		nowX -= 0.2; break;
+
+		// 'd'
+		case 100:
+		nowX += 0.2; break;
+
+		// 's'
+		case 115:
+		nowZ += 0.2; break;
+
+		// 'w'
+		case 119:
+		nowZ -= 0.2; break;
+
+		// 'q'
+		case 113:
+		nowY -= 0.2; break;
+
+		// 'e'
+		case 101:
+		nowY += 0.2; break;
+	}
 }
 
 void rotate(unsigned char key, int x, int y){
-	// 'r'
-	if (key == 114)
-		angleX -= 10;
-	// 't'
-	else if (key == 116)
-		angleX += 10;
-	// 'y'
-	else if (key == 121)
-		angleY -= 10;
-	// 'u'
-	else if (key == 117)
-		angleY += 10;
-	// 'i'
-	else if (key == 105)
-		angleZ -= 10;
-	// 'o'
-	else if (key == 111)
-		angleZ += 10;
+	switch(key){
+		// 'r'
+		case 114:
+		angleX -= 10; break;
+
+		// 't'
+		case 116:
+		angleX += 10; break;
+
+		// 'y'
+		case 121:
+		angleY -= 10; break;
+
+		// 'u'
+		case 117:
+		angleY += 10; break;
+
+		// 'i'
+		case 105:
+		angleZ -= 10; break;
+
+		// 'o'
+		case 111:
+		angleZ += 10; break;
+	}
 }
 
 void scale(unsigned char key, int x, int y){
