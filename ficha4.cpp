@@ -113,7 +113,7 @@ void prepareData(){
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vertexs.size(), vertexs.data(), GL_STATIC_DRAW);
 
 
-	glGenBuffers(2, &indexes);
+	glGenBuffers(1, &indexes);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexes);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, 
 			sizeof(unsigned int) * i.size(), 
