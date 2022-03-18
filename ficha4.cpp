@@ -94,16 +94,7 @@ void cylinderVertexes(float radius, float height, int sides){
 }
 
 void prepareData(){
-	// preencher o vector com as coordenadas dos pontos
-	/*
-	for(int k = 0; k < i.size(); k++)
-		printf("index[%d]: %d\n", k, i[k]);
-	for(int k = 0; k < vertexs.size(); k+=3)
-		printf("%f %f %f\n", vertexs[k], vertexs[k + 1], vertexs[k + 2]);
-		*/
-
-	cylinderVertexes(1, 2, 10);
-
+	cylinderVertexes(1, 2, 1000);
 	printf("verticeCount: %d\n", verticeCount);
 	printf("indexCount: %ld\n", i.size());
 
@@ -189,50 +180,6 @@ void cylinder0(float radius, float height, int sides) {
 	for (i=0; i <= sides; i++) {
 		glVertex3f(cos(i * step * M_PI/180.0)*radius, height*0.5,-sin(i * step *M_PI/180.0)*radius);
 		glVertex3f(cos(i * step * M_PI/180.0)*radius,-height*0.5,-sin(i * step *M_PI/180.0)*radius);
-	}
-	glEnd();
-}
-
-
-/*-----------------------------------------------------------------------------------
-	Draw Cylinder
-
-		parameters: radius, height, sides
-
------------------------------------------------------------------------------------*/
-
-
-void cylinder(float radius, float height, int sides) {
-	int i;
-	float step;
-
-	step = 360.0 / sides;
-
-	glBegin(GL_TRIANGLES);
-
-	// top
-	for (i = 0; i < sides; i++) {
-		glVertex3f(0, height*0.5, 0);
-		glVertex3f(cos(i * step * M_PI / 180.0)*radius, height*0.5, -sin(i * step *M_PI / 180.0)*radius);
-		glVertex3f(cos((i+1) * step * M_PI / 180.0)*radius, height*0.5, -sin((i + 1) * step *M_PI / 180.0)*radius);
-	}
-
-	// bottom
-	for (i = 0; i < sides; i++) {
-		glVertex3f(0, -height*0.5, 0);
-		glVertex3f(cos((i + 1) * step * M_PI / 180.0)*radius, -height*0.5, -sin((i + 1) * step *M_PI / 180.0)*radius);
-		glVertex3f(cos(i * step * M_PI / 180.0)*radius, -height*0.5, -sin(i * step *M_PI / 180.0)*radius);
-	}
-
-	// body
-	for (i = 0; i <= sides; i++) {
-		glVertex3f(cos(i * step * M_PI / 180.0)*radius, height*0.5, -sin(i * step *M_PI / 180.0)*radius);
-		glVertex3f(cos(i * step * M_PI / 180.0)*radius, -height*0.5, -sin(i * step *M_PI / 180.0)*radius);
-		glVertex3f(cos((i + 1) * step * M_PI / 180.0)*radius, height*0.5, -sin((i + 1) * step *M_PI / 180.0)*radius);
-
-		glVertex3f(cos(i * step * M_PI / 180.0)*radius, -height*0.5, -sin(i * step *M_PI / 180.0)*radius);
-		glVertex3f(cos((i + 1) * step * M_PI / 180.0)*radius, -height*0.5, -sin((i + 1) * step *M_PI / 180.0)*radius);
-		glVertex3f(cos((i + 1) * step * M_PI / 180.0)*radius, height*0.5, -sin((i + 1) * step *M_PI / 180.0)*radius);
 	}
 	glEnd();
 }
@@ -339,6 +286,7 @@ int main(int argc, char **argv) {
 		
 // Required callback registry 
 	glutDisplayFunc(renderScene);
+	glutIdleFunc(renderScene);
 	glutReshapeFunc(changeSize);
 	
 // Callback registration for keyboard processing
